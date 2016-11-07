@@ -1,7 +1,9 @@
 # ctc_tensorflow_voxforge
 Simple example how to use tensorflow's CTC loss with Voxforge speech data.
 
-The connectionist temporal classification (CTC) loss function was introduced in [1](http://www.cs.toronto.edu/~graves/icml_2006.pdf) for labelling unsegmented sequences. In contrast to other approaches, no a priori alignment of input speech features and target labels has to be known. The example shows how the CTC implementation from tensorflow can be used on top of a one-layer LSTM network.
+The connectionist temporal classification (CTC) loss function was introduced in [[1](http://www.cs.toronto.edu/~graves/icml_2006.pdf)] for labelling unsegmented sequences. In contrast to other approaches for speech recognition, no a priori alignment of input speech features and target labels has to be known. The example shows how the CTC implementation from tensorflow can be used on top of a one-layer BLSTM network.
+
+Inspired by the examples of [igormq](https://github.com/igormq/ctc_tensorflow_example) and [kdavis-mozilla](https://github.com/kdavis-mozilla/DeepSpeech).
 
 ### download_voxforge_data.py
 
@@ -13,7 +15,7 @@ As input feautures for speech recognition, Mel frequency cepstral coefficients (
 
 ### train_ctc_voxforge.py
 
-A single layer bidirectional LSTM network is trained to predict the transcriptions from the audio features. Every 10 epochs, an example batch is decoded and printed to be compared with the target. Over the course of 200 epochs, the training error drops to 10%. As expected, due to the very limited amount of data, the network does not generalize well to a hold-out batch, so that the validation error oscillates between 70%-80%. For this to work a probably much deeper network with much more data would be necessary, see e.g. [2](https://arxiv.org/pdf/1412.5567v2.pdf).
+A single layer bidirectional LSTM network is trained to predict the transcriptions from the audio features. Every 10 epochs, an example batch is decoded and printed for comparison with the target. Over the course of 200 epochs, the training error drops to 10%. As expected, due to the very limited amount of data, the network does not generalize well to a hold-out batch, so that the validation error oscillates between 70%-80%. For this to work a probably much deeper network with much more data would be necessary, see e.g. [[2](https://arxiv.org/pdf/1412.5567v2.pdf)].
 
 
 ## References
