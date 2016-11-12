@@ -1,13 +1,16 @@
 # ctc_tensorflow_voxforge
-Simple example how to use tensorflow's CTC loss with Voxforge speech data.
+Simple example how to use tensorflow's CTC loss with a BLSTM network and batch processing trained on a small number of Voxforge speech data.
 
-The connectionist temporal classification (CTC) loss function was introduced in [[1](http://www.cs.toronto.edu/~graves/icml_2006.pdf)] for labelling unsegmented sequences. In contrast to other approaches for speech recognition, no a priori alignment of input speech features and target labels has to be known. The example shows how the CTC implementation from tensorflow can be used on top of a one-layer BLSTM network.
+The connectionist temporal classification (CTC) loss function was introduced in [[1](http://www.cs.toronto.edu/~graves/icml_2006.pdf)] for labelling unsegmented sequences. In contrast to other approaches for speech recognition, no a priori alignment of input speech features and target labels has to be known. The example shows how the CTC implementation from tensorflow can be used on top of a one-layer BLSTM network. Furthermore, batch processing using several time series with different length is applied.
 
 Inspired by the examples of [igormq](https://github.com/igormq/ctc_tensorflow_example) and [kdavis-mozilla](https://github.com/kdavis-mozilla/DeepSpeech).
 
 ### download_voxforge_data.py
 
-A number of example files is downloaded from the [Voxforge repository](http://www.repository.voxforge1.org/downloads/SpeechCorpus/Trunk/Audio/Main/16kHz_16bit/) that contain audio recordings and text transcriptions of short sentences. The prompts can than be transformed into one txt file per example using generate_voxforge_txt_files.py
+A number of example files is downloaded from the [Voxforge repository](http://www.repository.voxforge1.org/downloads/SpeechCorpus/Trunk/Audio/Main/16kHz_16bit/) that contain audio recordings and text transcriptions of short sentences. 
+
+### generate_voxforge_txt_files.py
+The prompts that are contained in one file in the Voxforge download are transformed into one txt file per example used later for generating the prediction targets. 
 
 ### generate_voxforge_training_data.py
 
